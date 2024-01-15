@@ -3,7 +3,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [convertion, setConvertion] = useState(0);
+  const [conversion, setConversion] = useState(0);
   const [firstCurrency, setFirstCurrency] = useState("BRL");
   const [secondCurrency, setSecondCurrency] = useState("USD");
   const [amount, setAmount] = useState(0);
@@ -19,16 +19,26 @@ function App() {
   }
   useEffect(
     function () {
-      async function showConvertion() {
+      async function showConversion() {
         const result = await fetch(
           `https://api.frankfurter.app/latest?amount=${amount}&from=${firstCurrency}&to=${secondCurrency}`
         );
         const data = await result.json();
-        const test = data.rates[Object.keys(data.rates)[0]];
+        const test = Object.values(data.rates)[0];
         console.log(test);
-        setConvertion(test);
+        setConversion(test);
       }
-      showConvertion();
+
+      if (firstCurrency !== secondCurrency) {
+        if (isNaN(amount) || parseInt(amount) === 0 || amount.trim() === "") {
+          console.log(amount);
+          setConversion("Choose an amount to convert");
+        } else {
+          showConversion();
+        }
+      } else {
+        setConversion("Currencies are the same");
+      }
     },
     [firstCurrency, secondCurrency, amount]
   );
@@ -37,15 +47,19 @@ function App() {
       <input value={amount} onChange={(e) => handleAmount(e.target.value)} />
       <select onChange={(e) => handleSelectFirst(e.target.value)}>
         <option value="USD">USD</option>
-        <option value="BRL">BRL</option>
+        <option selected value="BRL">
+          BRL
+        </option>
         <option value="EUR">EUR</option>
       </select>
       <select onChange={(e) => handleSelectSecond(e.target.value)}>
-        <option value="USD">USD</option>
+        <option selected value="USD">
+          USD
+        </option>
         <option value="BRL">BRL</option>
         <option value="EUR">EUR</option>
       </select>
-      <p>{convertion}</p>
+      <p>{conversion}</p>
     </div>
   );
 }
