@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: rgb(240, 240, 11);
+  background-color: rgb(246, 246, 29);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -43,6 +43,7 @@ body {
 
 #gif {
   padding-bottom: 2%;
+  width: auto;
 }
 
 #conversion-icon {
@@ -50,7 +51,7 @@ body {
 }
 
 .currency-price {
-  background-color: rgb(241, 241, 34);
+  background-color: #F2BE22;
   padding: 1%;
   width: auto;
   display: flex;
@@ -62,6 +63,7 @@ body {
 }
 
 .conversion-form {
+  width: 100%;
   font-weight: bold;
   color: red;
   margin-top: 5%;
