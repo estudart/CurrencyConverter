@@ -51,7 +51,7 @@ function App() {
       <h2>Pocket Exchange</h2>
       <img id="gif" src="./money.gif" alt="money gif" />
       <div className="currency-price">
-        <p>Set a price to convert:</p>
+        <p style={{ marginTop: "0px" }}>Set a price to convert:</p>
         <input
           id="conversionAmount"
           style={{ width: "50px", textAlign: "center" }}

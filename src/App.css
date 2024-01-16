@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: rgb(240, 240, 11);
+  background-color: rgb(246, 246, 29);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -50,7 +50,7 @@ body {
 }
 
 .currency-price {
-  background-color: rgb(241, 241, 34);
+  background-color: #f2be22;
   padding: 1%;
   width: auto;
   display: flex;
@@ -64,7 +64,7 @@ body {
 .conversion-form {
   font-weight: bold;
   color: red;
-  margin-top: 5%;
+  margin-top: 0%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,7 +81,7 @@ body {
 
 input {
   font-weight: bolder;
-  background-color: rgb(241, 241, 34);
+  background-color: rgb(158, 158, 20);
   outline: 0;
   border-width: 0 0 2px;
   border-color: red;
